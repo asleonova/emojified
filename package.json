@@ -4,6 +4,9 @@
   "description": "starter kit for chrome extension on ts",
   "main": "background.js",
   "author": "LeoMouyna <leo.mouyna@contentsquare.com>",
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/chrome": "^0.0.195",
