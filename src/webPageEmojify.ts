@@ -1,14 +1,14 @@
 function emojify(text: string): string {
   return text
-    .replace(/ dog[ ']/gim, " 🐶 $& ")
-    .replace(/ wolf[ ']/gim, " 🐺 $&");
+    .replace(/[^\w^-]dog[ '.,;!?]/gim, " 🐶$&")
+    .replace(/[^\w^-]wolf[ '.,;!?]/gim, " 🐺$&");
 }
 
 function sanitize(htmlContent: string): string {
-  return htmlContent.replace(
-    /<\/?[a-zA-Z0-9 \=\"\'\-\_\:\;\(\)\,\/]+\/?>/gm,
-    " $& "
-  );
+  return htmlContent
+    .replace(/<\/?[\w \=\"\'\-\_\:\;\(\)\,\/\.]+\/?>/gm, " $& ")
+    .replace(/ +/gm, " ")
+    .trim();
 }
 
 function getAllTextElement(): HTMLElement[] {
